@@ -606,8 +606,8 @@ textarea {
     border-bottom: 0; }
 
 .main-footer {
-  background: #000;
-  color: #fff; }
+  background: #fff;
+  color: #000; }
   .main-footer__upper {
     display: flex;
     justify-content: space-between;
@@ -632,7 +632,7 @@ textarea {
         width: 100%; } }
   .main-footer__short-desc {
     margin-top: 2rem;
-    color: #eee;
+    color: #333;
     font-size: 1.5rem;
     line-height: 1.7; }
   .main-footer__social-cont {
@@ -644,8 +644,8 @@ textarea {
       margin-right: 0; }
   .main-footer__lower {
     padding: 4rem 0;
-    border-top: 1px solid #444;
-    color: #eee;
+    border-top: 1px solid #ccc;
+    color: #333;
     font-size: 1.2rem;
     text-align: left;
     text-align: center; }

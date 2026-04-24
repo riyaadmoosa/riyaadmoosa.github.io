@@ -639,7 +639,8 @@ textarea {
     margin-top: 2rem; }
   .main-footer__icon {
     margin-right: 1rem;
-    width: 2.5rem; }
+    width: 2.5rem;
+  filter: brightness(0)}
     .main-footer__icon--mr-none {
       margin-right: 0; }
   .main-footer__lower {

@@ -700,3 +700,8 @@ textarea {
   to {
     opacity: 0;
     top: 27px; } }
+
+/* Fix Contact section height */
+.contact {
+  padding: 5rem 0 !important;
+}

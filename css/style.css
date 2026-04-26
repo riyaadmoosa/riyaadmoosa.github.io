@@ -228,10 +228,8 @@ textarea {
   position: static;
   transform: none;
   margin: 0 auto;
-  padding-top: 10rem;
+  padding-top: 6rem;
   text-align: center;
-  max-width: 90rem;
-  width: 92%;
 }
     @media only screen and (max-width: 37.5em) {
       .home-hero__content {
@@ -240,10 +238,10 @@ textarea {
         position: static;
         transform: translate(0, 0); } }
   .home-hero__info {
-    margin: 3rem auto 0 auto;
+    margin: 1.5rem auto 0 auto;
     max-width: 80rem; }
   .home-hero__cta {
-    margin-top: 5rem;
+    margin-top: 2rem;
     text-align: center; }
 
 .about {

@@ -213,17 +213,18 @@ textarea {
   .home-hero__social {
     width: 5rem; }
   .home-hero__social-icon-link {
-    width: 100%;
-    display: block;
-    padding: 1.2rem;
-    border-bottom: 2px solid #eee;
-    transition: background .3s; }
+    width: auto;              /* was 100% */
+  display: inline-block;    /* was block */
+  padding: 0;               /* remove space around icon */
+  border-bottom: none;      /* removes white line */
+  line-height: 0;           /* removes tiny gaps */ }
     .home-hero__social-icon-link:hover {
       background: rgba(255, 255, 255, 0.1); }
     .home-hero__social-icon-link--bd-none {
       border-bottom: 0; }
   .home-hero__social-icon {
-    width: 100%; }
+    width: 30px;  /* or whatever size you want */
+  display: block; }
  	  .home-hero__content {
   position: static;
   transform: none;

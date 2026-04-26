@@ -72,10 +72,10 @@ textarea {
       font-size: 4.5rem; } }
 
 .heading-sec__mb-bg {
-  margin-bottom: 4rem; }
+  margin-bottom: 0.5rem; }
   @media only screen and (max-width: 56.25em) {
     .heading-sec__mb-bg {
-      margin-bottom: 8rem; } }
+      margin-bottom: 1rem; } }
 
 .heading-sec__mb-med {
   margin-bottom: 9rem; }

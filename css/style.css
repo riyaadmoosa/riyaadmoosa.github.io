@@ -78,10 +78,10 @@ textarea {
       margin-bottom: 1rem; } }
 
 .heading-sec__mb-med {
-  margin-bottom: 2rem; }
+  margin-bottom: 1rem; }
   @media only screen and (max-width: 56.25em) {
     .heading-sec__mb-med {
-      margin-bottom: 2rem; } }
+      margin-bottom: 1rem; } }
 
 .heading-sec__main {
   display: block;
@@ -90,7 +90,7 @@ textarea {
   letter-spacing: 1px;
   letter-spacing: 3px;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   position: relative; }
   .heading-sec__main--lt {
     color: #fff; }

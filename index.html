@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SysAdmin & CyberSecurity Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --text-color: #212529;
+            --accent-color: #3182C5;
+            --muted-color: #6c757d;
+            --border-color: #e9ecef;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--text-color); }
+        .subtitle { font-size: 1.2rem; color: var(--accent-color); margin-top: 0; font-weight: 600; }
+        .bio { max-width: 600px; margin: 0 auto; color: var(--muted-color); }
+        main { max-width: 800px; margin: 0 auto; padding: 2rem; }
+        section { margin-bottom: 3rem; }
+        h2 { border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; color: var(--text-color); }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .card h3 { margin-top: 0; color: var(--accent-color); }
+        .tag {
+            background: var(--border-color);
+            color: var(--text-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.4rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        .links { margin-top: 1rem; }
+        .links a { color: var(--accent-color); text-decoration: none; margin-right: 1rem; font-weight: bold; }
+        .links a:hover { text-decoration: underline; }
+        footer { text-align: center; padding: 2rem; color: var(--muted-color); font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
+		
+		        .skills-category {
+            margin-bottom: 1.2rem;
+            line-height: 2;
+        }
+        .skills-label {
+            display: inline-block;
+            font-weight: bold;
+            min-width: 220px;
+            color: var(--text-color);
+        }
+        @media (max-width: 600px) {
+            .skills-label {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+        }
+	
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Riyaad Moosa</h1>
+        <p class="subtitle">System Administrator & Cybersecurity Enthusiast</p>
+        <p class="bio">Systems Administrator with 5+ years of experience managing Linux and Windows environments, including cloud and on-prem infrastructure. Skilled in monitoring, troubleshooting, documentation and support, with a growing interest in cybersecurity and automation.</p>
+        <div class="links">
+            <a href="https://github.com/riyaadmoosa/linux-tools">GitHub</a>
+            <a href="https://www.linkedin.com/in/riyaad-moosa-1ba750356/">LinkedIn</a>
+        </div>
+    </header>
+
+    <main>
+	     <section id="projects">
+            <h2>Infrastructure & Security Projects</h2>
+            <div class="grid">
+                <!-- Project Card 1 -->
+                <div class="card">
+                    <h3>VM Migration</h3>
+                    <p>Lead and assisted in migration of VM's from Linode to Vmware</p>
+                    <div><span class="tag">Linode</span><span class="tag">Linux</span><span class="tag">Blue Teaming</span></div>
+                    <div class="links">
+                        <a href="projects.html#vm-migration">Project Details &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="card">
+                    <h3>Salesforce (SAP) Migration</h3>
+                    <p>Assisted migration from a custom mail server to Salesforce (SAP), focusing on DNS configuration for enterprise email marketing</p>
+                    <div><span class="tag">Linode</span><span class="tag">Salesforce</span><span class="tag">DNS</span></div>
+                    <div class="links">
+                        <a href="projects.html#salesforcesap-migration">Project Details &rarr;</a>
+                    </div>
+                </div>
+			   <!-- Project Card 3 -->
+                <div class="card">
+                    <h3>Data Protection Awareness Email Campaign</h3>
+                    <p>Developed a bi-monthly data protection awareness email campaign</p>
+                    <div><span class="tag">Linode</span><span class="tag">Salesforce</span><span class="tag">DNS</span></div>
+                    <div class="links">
+                        <a href="projects.html#salesforcesap-migration">Project Details &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+	 <section id="skills">
+             <h2>Skills & Technologies</h2>
+            
+            <div class="skills-category">
+                <span class="skills-label">Core Competencies:</span>
+                <span class="tag">Linux/Windows Server</span>
+                <span class="tag">System Security</span>
+                <span class="tag">Linode, VMware Virtualization</span>
+                <span class="tag">Backup Integrity & Data Restoration</span>
+                <span class="tag">Bash Scripting</span>
+                <span class="tag">1st & 2nd Line Troubleshooting</span>
+                <span class="tag">Concise Technical Documentation</span>
+                <span class="tag">Training & Knowledge Sessions</span>
+            </div>
+
+            <div class="skills-category">
+                <span class="skills-label">Infrastructure & Networking:</span>
+                <span class="tag">Linux (Debian, Ubuntu, CentOS)</span>
+                <span class="tag">Windows Server (2008, 2012,2022)</span>
+                <span class="tag">TCP/IP, DNS, DHCP, VPN</span>
+                <span class="tag">Apache</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Postfix</span>
+            </div>
+
+            <div class="skills-category">
+                <span class="skills-label">Security, Monitoring & Tools:</span>
+                <span class="tag">Zabbix</span>
+                <span class="tag">UFW, Fail2Ban</span>
+                <span class="tag">AWS S3</span>
+                <span class="tag">Google Workspace</span>
+                <span class="tag">Jira, ServiceNow, MantisHub</span>
+                <span class="tag">SharePoint & Wikis</span>
+            </div>
+        </section>
+			
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Riyaad Moosa Powered by GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>

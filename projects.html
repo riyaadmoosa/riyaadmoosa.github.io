@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Documentation</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --text-color: #212529;
+            --accent-color: #3182C5;
+            --muted-color: #6c757d;
+            --border-color: #e9ecef;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+        }
+        nav a { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        main { max-width: 800px; margin: 0 auto; padding: 2rem; }
+        .project-detail { 
+            margin-bottom: 5rem; 
+            padding-top: 2rem; /* Provides comfortable spacing when jumped to from anchor link */
+        }
+        h1 { color: var(--text-color); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        h2 { color: var(--accent-color); margin-top: 2rem; font-size: 1.5rem;}
+        .tag {
+            background: var(--border-color);
+            color: var(--text-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.4rem;
+        }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        footer { text-align: center; padding: 2rem; color: var(--muted-color); font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">&larr; Back to Home</a>
+    </nav>
+
+    <main>
+        <!-- Project 1 Documentation Section -->
+        <article class="project-detail" id="vm-migration">
+            <h1>VM Migration</h1>
+            <p>
+                <span class="tag">Linode</span>
+                <span class="tag">Linux Admin</span>
+                <span class="tag">Blue Teaming</span>
+            </p>
+            
+            <h2>Project Overview</h2>
+            <p>Provide a thorough summary of the project environment here. Explain the infrastructure scope, user needs, or security vulnerability you set out to solve.</p>
+            
+            <h2>Architecture & Implementation</h2>
+            <p>Detail how you built it. For SysAdmin/Cybersecurity roles, this is where you can describe your server configuration, network rules, and storage scaling plans.</p>
+            <ul>
+                <li><strong>Step 1:</strong> Provisioned dedicated Ubuntu Server instances for the manager and indexer components.</li>
+                <li><strong>Step 2:</strong> Configured secure log forwarding agents across Windows and Linux nodes.</li>
+                <li><strong>Step 3:</strong> Established automated email/Slack alert rules for critical severity events.</li>
+            </ul>
+
+            <h2>Security Outcomes</h2>
+            <p>Explain the results of your work, highlighting specific metrics such as malicious traffic blocks or reduced visibility blindspots.</p>
+        </article>
+
+        <!-- Project 2 Documentation Section -->
+        <article class="project-detail" id="salesforcesap-migration">
+            <h1>Salesforce (SAP) Migrationn</h1>
+            <p>
+                <span class="tag">Linode</span>
+                <span class="tag">Salesforce</span>
+                <span class="tag">DNS</span>
+            </p>
+            
+            <h2>Project Overview</h2>
+            <p>Detail your second project framework here. Focus heavily on system configuration best practices, network segmentation policies, and zero-trust strategies.</p>
+            
+            <h2>Architecture & Implementation</h2>
+            <p>Describe your technical process and how you organized the project layers.</p>
+            <ul>
+                <li><strong>Step 1:</strong> Created segmented VLANs on the firewall to isolate untrusted IoT devices from management nodes.</li>
+                <li><strong>Step 2:</strong> Developed reusable Ansible Playbooks to push software updates dynamically across internal nodes.</li>
+            </ul>
+
+            <h2>Security Outcomes</h2>
+            <p>Share what you learned or how this deployment improved your day-to-day administrative workflow.</p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Riyaad Moosa Powered by GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>

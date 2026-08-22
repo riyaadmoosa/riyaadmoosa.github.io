@@ -65,18 +65,23 @@
             </p>
             
             <h2>Project Overview</h2>
-            <p>Provide a thorough summary of the project environment here. Explain the infrastructure scope, user needs, or security vulnerability you set out to solve.</p>
+            <p>This involved migrating a number of virtual machines from Linode onto our VM Ware Hypervisor hosted in our own datacentre.</p>
             
             <h2>Architecture & Implementation</h2>
-            <p>Detail how you built it. For SysAdmin/Cybersecurity roles, this is where you can describe your server configuration, network rules, and storage scaling plans.</p>
+            <p>We had a Zabbix monitoring server, a custom SFTP server which our clients connected to, and another server which HR used for managing employee details.</p>
             <ul>
-                <li><strong>Step 1:</strong> Provisioned dedicated Ubuntu Server instances for the manager and indexer components.</li>
-                <li><strong>Step 2:</strong> Configured secure log forwarding agents across Windows and Linux nodes.</li>
-                <li><strong>Step 3:</strong> Established automated email/Slack alert rules for critical severity events.</li>
+                <li><strong>Step 1:</strong> Analysed each server, in terms of current specs, software installed, firewall configuration and required user access.</li>
+                <li><strong>Step 2:</strong> Documented current configuration for each server</li>
+                <li><strong>Step 3:</strong> Created new instances on VMWare with relevant specs for each machine that was to be migrated, installed OS and matching applications</li>
+                <li><strong>Step 4:</strong> Backed up application configuration files, databases, user accounts and transferred them to local storage</li>
+                <li><strong>Step 5:</strong> Imported backup data onto the VMWare instances for each new virtual machine, setup application configuration, user access and firewall accee</li>
+                <li><strong>Step 6:</strong> Notified relevant parties for cut off date when the old Linode instances will be switched off, and the new VMWare will be switched on.</li>
+                <li><strong>Step 7:</strong> Monitor the new VMWare instances for any issues and resolve where necessary</li>
+               <li><strong>Step 8:</strong> Updated documentation for each server that was migrated</li>
             </ul>
 
-            <h2>Security Outcomes</h2>
-            <p>Explain the results of your work, highlighting specific metrics such as malicious traffic blocks or reduced visibility blindspots.</p>
+            <h2>Results</h2>
+            <p>All VMWare instances were running successfully thereafter. The Linode service was then cancelled resulting in a cost saving</p>
         </article>
 
         <!-- Project 2 Documentation Section -->

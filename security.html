@@ -72,7 +72,7 @@
             <ul>
                 <li><strong>Step 1:</strong> Restarted the server thinking this would resolve the issue by clearing any stale connections</li>
                 <li><strong>Step 2:</strong> Logged into the server and found it to be quite slow. Looked through different logs. Found in /var/log/auth.log that the server was being attacked using brute-force.</li>
-                <li><strong>Step 3:</strong> Also ran the top command and saw that the fail2ban service was using the most processes.</li>
+                <li><strong>Step 3:</strong> Also ran the top command and saw that the Fail2Ban service was using the most processes.</li>
                 <li><strong>Step 4:</strong> Blocked the offending IP through the UFW firewall</li>
                 <li><strong>Step 5:</strong> Checked and saw the brute force was still occurring on port 22. Checked the sSHD config file and saw that the por was open alongside the custome SSH port</li>
                 <li><strong>Step 6:</strong> Discussed with manager and he gave permissions to disable port 22. Closed off port 22 in SSD configuration. </li>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Documentation</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --text-color: #212529;
+            --accent-color: #3182C5;
+            --muted-color: #6c757d;
+            --border-color: #e9ecef;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+        }
+        nav a { color: var(--accent-color); text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        main { max-width: 800px; margin: 0 auto; padding: 2rem; }
+        .project-detail { 
+            margin-bottom: 5rem; 
+            padding-top: 2rem; /* Provides comfortable spacing when jumped to from anchor link */
+        }
+        h1 { color: var(--text-color); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        h2 { color: var(--accent-color); margin-top: 2rem; font-size: 1.5rem;}
+        .tag {
+            background: var(--border-color);
+            color: var(--text-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.4rem;
+        }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        footer { text-align: center; padding: 2rem; color: var(--muted-color); font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">&larr; Back to Home</a>
+    </nav>
+
+    <main>
+        <!-- Project 1 Documentation Section -->
+        <article class="project-detail" id="brute-force">
+            <h1>Mitigate Brute Force Attack</h1>
+            <p>
+                <span class="tag">Linode</span>
+                <span class="tag">Linux Admin</span>
+                <span class="tag">SFTP, SSH</span>
+            </p>
+            
+            <h2>Incident Overview</h2>
+            <p></p>
+            
+            <h2>Security: Brute Force Attack</h2>
+            <p> A user notified us that they were unable to login to our SFTP server. After investigation, we discovered a brute-force attack was being conducted against our SFTP server. It was investigated and stopped.</p>
+            <ul>
+                <li><strong>Step 1:</strong> Restarted the server thinking this would resolve the issue by clearing any stale connections</li>
+                <li><strong>Step 2:</strong> Logged into the server and found it to be quite slow. Looked through different logs. Found in /var/log/auth.log that the server was being attacked using brute-force.</li>
+                <li><strong>Step 3:</strong> Also ran the top command and saw that the fail2ban service was using the most processes.</li>
+                <li><strong>Step 4:</strong> Blocked the offending IP through the UFW firewall</li>
+                <li><strong>Step 5:</strong> Checked and saw the brute force was still occurring on port 22. Checked the sSHD config file and saw that the por was open alongside the custome SSH port</li>
+                <li><strong>Step 6:</strong> Discussed with manager and he gave permissions to disable port 22. Closed off port 22 in SSD configuration. </li>
+                <li><strong>Step 7:</strong> Configured Fail2Ban to ban an IP after 3 failed SSH login attempts within 5 minutes.</li>
+                <li><strong>Step 8:</strong> Searched online and saw the IP belonged to an ISP in Europe. I reported the offending IP to them along with an except of the logs. The ISP is in Europe </li>
+            </ul>
+
+            <h2>Results</h2>
+            <p>When the offending IP, was blocked by the security Admin team, then the attack stopped. Wrote a full report for direct line manager and the cybersecurity team as well.</p>
+        </article>
+
+        <!-- Project 2 Documentation Section -->
+        <article class="project-detail" id="codeinjection-mailserver">
+            <h1>Code Injection Mail Server</h1>
+            <p>
+                <span class="tag">Linux</span>
+                <span class="tag">PHP</span>
+                <span class="tag">Mail Server</span>
+            </p>
+            
+            <h2>Incident Overview</h2>
+            <p>A user notified us that the custom mail server was not working. When loading the page, it gave an error which pointed to the PHP files.</p>
+            
+            <h2>Architecture & Implementation</h2>
+            <p></p>
+            <ul>
+                <li><strong>Step 1:</strong> Notified the developer immediately as to the error message and enquired from him if there were any changes made to the code. </li>
+                <li><strong>Step 2:</strong> As no changes were made to the code, further investigation continued and discovered the index.php and .htaccess files had new date and time stamps.</li>
+                <li><strong>Step 3:</strong> Both files were opened, copied the code that was in there and pasted it into companny managed Microsoft Co-Pilot. This confirmed that the code in those files were malicious and advised to delete them immediately.</li>
+                <li><strong>Step 4:</strong> Discussed with manager further. Checked the /etc.passwd file and /home directories and saw that no new users were added. </li>
+                <li><strong>Step 5:</strong> Agreed to delete those files and restored the index.php and .htaccess files from a backup.</li>
+                <li><strong>Step 6:</strong> Tested on a different browser, logged in and confirmed that the site was working again.</li>
+                <li><strong>Step 7:</strong> Notified the users of the site that it was back up again.</li>
+                <li><strong>Step 8:</strong> Adjusted the firewall rules to only allow traffic from company VPN as this was where company users would connect from.</li>
+                <li><strong>Step 9:</strong> Drafted incident report and sent to manager and cybersecurity team. </li>
+                      </ul>
+
+            <h2>Results</h2>
+            <p>Adjusted firewall rules to only allow traffic from company VPN, thus increasing the security of the server.</p>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Riyaad Moosa Powered by GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>

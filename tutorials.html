@@ -46,6 +46,30 @@
         ul { padding-left: 1.5rem; }
         li { margin-bottom: 0.5rem; }
         footer { text-align: center; padding: 2rem; color: var(--muted-color); font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
+  pre {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0 1.5rem;
+}
+
+pre code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+code {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.1rem 0.3rem;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    font-size: 0.9em;
+}
+    
     </style>
 </head>
 <body>
@@ -68,43 +92,284 @@
             <p> The below process details how to install Fail2Ban onto Debian 12 or Ubuntu</p>
             
             <h2>Details</h2>
-            1. Initial installation: 
-               sudo apt install fail2ban
-            2. For the defaul setup of Fail2Ban on Linux, create a jail.local file:
-          sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+           <!DOCTYPE html>
+<html lang="en">
 
-          In the jail.local file, uncomment and change these parameters where necessary:
-          banaction = ufw        (This defines that the ban must be implemented by the UFW firewall automatically)
-          banaction_allports = ufw (This defines that the ban must be implemented by the UFW firewall automatically)
-          destemail = it@companyname.com (Change this to the email address to which the Fail2Ban notice should be sent to)
-          ignoreip = 127.0.0.1/8
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-          bantime  = 720m (This defines how long an attacker remains blocked. In this case, it is 12 hours)
-          findtime = 10m (This defines the time window in which failures are counted. In this case, it is 10 minutes)
-          maxretry = 3    (This defines the number of failures allowed before a ban of the offending IP is implemented.
+    <title>Fail2Ban Installation and Configuration</title>
 
-      Now add the the blocking of brute-force SSH attempts. In the jail.local file look for the section for sshd. Adjust the section as below:
-            port = ssh
-            enabled = true
-            logpath = /var/log/fail2ban.log
-            backed = %(sshd_backend)s
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --text-color: #212529;
+            --accent-color: #3182C5;
+            --muted-color: #6c757d;
+            --border-color: #e9ecef;
+        }
 
-      After making the changes as above, save the file and exit it.
-      Then test the configuration file without starting the service. This will tell you if there are any issues in the configuration file:
-            sudo fail2ban-client -t
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-        To start the Fail2Ban service:
-            sudo systemctl start fail2ban
-        To enable the Fail2Ban service upon start-up:
-            sudo systemctl enable fail2ban
-        To check the Fail2Ban service status:
-            sudo systemctl status fail2ban
-        To check the logs for any failed logins in Debian 12:
-            sudo journalct _COMM=sshd
-        To check the logs for any failed logins in Ubuntu 22:
-            sudo tail -f /var/log/auth.log
-        To check if the banned IP addresses have been added to the UFW firewall:
-            sudo ufw status numbered
+        nav {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+        }
+
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .project-detail {
+            margin-bottom: 5rem;
+            padding-top: 2rem;
+        }
+
+        h1 {
+            color: var(--text-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .tag {
+            background: var(--border-color);
+            color: var(--text-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.4rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted-color);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        /* Code formatting */
+
+        pre {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0 1.5rem;
+        }
+
+        pre code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        code {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.1rem 0.3rem;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+        <section class="project-detail">
+
+            <h1>Fail2Ban Installation and Configuration</h1>
+            <h2>Details</h2>
+
+            <h2>1. Initial Installation</h2>
+            <p>
+                Install Fail2Ban using the following command:
+            </p>
+            <pre><code>sudo apt install fail2ban</code></pre>
+
+            <h2>2. Create the jail.local Configuration</h2>
+            <p>
+                For the default setup of Fail2Ban on Linux, create a
+                <code>jail.local</code> file by copying the default configuration:
+            </p>
+            <pre><code>sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local</code></pre>
+
+            <p>
+                Open the <code>jail.local</code> file and uncomment or change
+                the following parameters where necessary.
+            </p>
+
+            <h2>3. Configure Fail2Ban</h2>
+            <pre><code>banaction = ufw
+                banaction_allports = ufw
+                destemail = it@companyname.com
+                ignoreip = 127.0.0.1/8
+
+                bantime = 720m
+                findtime = 10m
+                maxretry = 3
+            </code></pre>
+
+            <ul>
+                <li>
+                    <strong>banaction:</strong>
+                    Defines that the ban should be implemented automatically
+                    using the UFW firewall.
+                </li>
+
+                <li>
+                    <strong>banaction_allports:</strong>
+                    Defines that the offending IP should be blocked across
+                    all ports using the UFW firewall.
+                </li>
+
+                <li>
+                    <strong>destemail:</strong>
+                    Change this to the email address to which Fail2Ban
+                    notifications should be sent.
+                </li>
+
+                <li>
+                    <strong>ignoreip:</strong>
+                    Specifies IP addresses that should be ignored by
+                    Fail2Ban. The default value shown above represents
+                    localhost addresses.
+                </li>
+
+                <li>
+                    <strong>bantime:</strong>
+                    Defines how long an offending IP address remains blocked.
+                    <code>720m</code> represents <strong>12 hours</strong>.
+                </li>
+
+                <li>
+                    <strong>findtime:</strong>
+                    Defines the time window in which failed attempts
+                    are counted. In this configuration, the window is
+                    <strong>10 minutes</strong>.
+                </li>
+
+                <li>
+                    <strong>maxretry:</strong>
+                    Defines the number of failures allowed before a ban
+                    of the offending IP address is implemented.
+                    In this configuration, the limit is
+                    <strong>3 attempts</strong>.
+                </li>
+            </ul>
+
+
+            <h2>4. Configure SSH Brute-Force Protection</h2>
+            <p>
+                To enable protection against brute-force SSH attempts,
+                locate the <code>[sshd]</code> section in the
+                <code>jail.local</code> file and adjust it as follows:
+            </p>
+
+            <pre><code>[sshd]
+                    port = ssh
+                    enabled = true
+                    logpath = /var/log/fail2ban.log
+                    backend = %(sshd_backend)s
+            </code></pre>
+            <p>
+                After making the changes, save the file and exit the editor.
+
+
+            <h2>5. Test the Configuration</h2>
+            <p>
+                Before starting the Fail2Ban service, test the configuration
+                file. This will identify any configuration errors:
+            </p>
+            <pre><code>sudo fail2ban-client -t</code></pre>
+
+
+            <h2>6. Start the Fail2Ban Service</h2>
+            <p>
+                Start the Fail2Ban service:
+            </p>
+            <pre><code>sudo systemctl start fail2ban</code></pre>
+
+            <p>
+                Enable Fail2Ban to start automatically when the system boots:
+            </p>
+            <pre><code>sudo systemctl enable fail2ban</code></pre>
+
+
+            <h2>7. Check the Service Status</h2>
+            <p>
+                Check the current status of the Fail2Ban service:
+            </p>
+            <pre><code>sudo systemctl status fail2ban</code></pre>
+
+            <h2>8. Check SSH Login Attempts</h2>
+
+            <p>
+                On Debian 12, SSH authentication events can be viewed
+                using:
+            </p>
+            <pre><code>sudo journalctl _COMM=sshd</code></pre>
+
+            <p>
+                On Ubuntu 22.04, authentication logs can be monitored
+                using:
+            </p>
+            <pre><code>sudo tail -f /var/log/auth.log</code></pre>
+
+            <h2>9. Check Banned IP Addresses</h2>
+            <p>
+                To check whether banned IP addresses have been added
+                to the UFW firewall:
+            </p>
+            <pre><code>sudo ufw status numbered</code></pre>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
                  
 
             <h2>Results</h2>

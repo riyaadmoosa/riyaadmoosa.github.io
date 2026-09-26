@@ -74,8 +74,8 @@
           sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
           In the jail.local file, uncomment and change these parameters where necessary:
-          banaction = ufw
-          banaction_allports = ufw
+          banaction = ufw        (This defines that the ban must be implemented by the UFW firewall automatically)
+          banaction_allports = ufw (This defines that the ban must be implemented by the UFW firewall automatically)
           destemail = it@companyname.com (Change this to the email address to which the Fail2Ban notice should be sent to)
           ignoreip = 127.0.0.1/8
 
@@ -83,6 +83,20 @@
           findtime = 10m (This defines the time window in which failures are counted. In this case, it is 10 minutes)
           maxretry = 3    (This defines the number of failures allowed before a ban of the offending IP is implemented.
 
+        To start the Fail2Ban service:
+            sudo systemctl start fail2ban
+
+        To enable the Fail2Ban service upon start-up:
+            sudo systemctl enable fail2ban
+        To check the Fail2Ban service status:
+            sudo systemctl status fail2ban
+        To check the logs for any failed logins in Debian 12:
+            sudo journalct _COMM=sshd
+        To check the logs for any failed logins in Ubuntu 22:
+            sudo tail -f /var/log/auth.log
+        To check if the banned IP addresses have been added to the UFW firewall:
+            sudo ufw status numbered
+            
           
 
             <h2>Results</h2>

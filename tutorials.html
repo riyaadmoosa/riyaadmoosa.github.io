@@ -1,111 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorials</title>
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --card-bg: #f8f9fa;
-            --text-color: #212529;
-            --accent-color: #3182C5;
-            --muted-color: #6c757d;
-            --border-color: #e9ecef;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        nav {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 2rem 0;
-        }
-        nav a { color: var(--accent-color); text-decoration: none; font-weight: bold; }
-        nav a:hover { text-decoration: underline; }
-        main { max-width: 800px; margin: 0 auto; padding: 2rem; }
-.project-detail h2 {
-    color: var(--accent-color);
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.5rem;
-}
-
-.project-detail p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-
-.project-detail h2 + p {
-    margin-bottom: 1.5rem;
-}
-        
-        h1 { color: var(--text-color); border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
-        h2 { color: var(--accent-color); margin-top: 2rem; font-size: 1.5rem;}
-        .tag {
-            background: var(--border-color);
-            color: var(--text-color);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 0.4rem;
-        }
-        ul { padding-left: 1.5rem; }
-        li { margin-bottom: 0.5rem; }
-        footer { text-align: center; padding: 2rem; color: var(--muted-color); font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: 4rem; }
-  pre {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 1rem;
-    overflow-x: auto;
-    margin: 1rem 0 1.5rem;
-}
-
-pre code {
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-    color: var(--text-color);
-    font-size: 0.9rem;
-}
-
-code {
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    padding: 0.1rem 0.3rem;
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-    font-size: 0.9em;
-}
-    
-    </style>
-</head>
-<body>
-
-    <nav>
-        <a href="index.html">&larr; Back to Home</a>
-    </nav>
-
-    <main>
-        <!-- Tutorial Fail2Ban -->
-        <article class="project-detail" id="brute-force">
-            <h1>Setting up Fail2Ban</h1>
-            <p>
-                <span class="tag">Fail2Ban</span>
-                <span class="tag">Linux Admin</span>
-                <span class="tag">SSH</span>
-            </p>
-            
-            <h2>Overview</h2>
-            <p> The below process details how to install Fail2Ban onto Debian 12 or Ubuntu
-            It also integrates Fail2Ban with UFW, in that UFW will automatically block the offending IP.</p>
-
-           <!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -168,7 +62,17 @@ code {
         h2 {
             color: var(--accent-color);
             margin-top: 2rem;
+            margin-bottom: 0.75rem;
             font-size: 1.5rem;
+        }
+
+        .project-detail p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .project-detail h2 + p {
+            margin-bottom: 1.5rem;
         }
 
         .tag {
@@ -227,39 +131,77 @@ code {
 
 <body>
 
+    <nav>
+        <a href="index.html">&larr; Back to Home</a>
+    </nav>
+
     <main>
 
-        <section class="project-detail">
+        <article class="project-detail" id="brute-force">
+
+            <h1>Setting up Fail2Ban</h1>
+
+            <p>
+                <span class="tag">Fail2Ban</span>
+                <span class="tag">Linux Admin</span>
+                <span class="tag">SSH</span>
+            </p>
+
+
+            <!-- Overview -->
+
+            <h2>Overview</h2>
+
+            <p>
+                The following process details how to install Fail2Ban on
+                Debian 12 or Ubuntu. It also integrates Fail2Ban with UFW,
+                allowing UFW to automatically block offending IP addresses.
+            </p>
+
+
+            <!-- Step 1 -->
+
             <h2>1. Initial Installation</h2>
+
             <p>
                 Install Fail2Ban using the following command:
             </p>
+
             <pre><code>sudo apt install fail2ban</code></pre>
 
+
+            <!-- Step 2 -->
+
             <h2>2. Create the jail.local Configuration</h2>
+
             <p>
                 For the default setup of Fail2Ban on Linux, create a
                 <code>jail.local</code> file by copying the default configuration:
             </p>
+
             <pre><code>sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local</code></pre>
 
             <p>
                 Open the <code>jail.local</code> file and uncomment or change
-                the following parameters where necessary.
+                the following parameters where necessary:
             </p>
 
-            <h2>3. Configure Fail2Ban</h2>
-            <pre><code>banaction = ufw
-    banaction_allports = ufw
-    destemail = it@companyname.com
-    ignoreip = 127.0.0.1/8
 
-    bantime = 720m
-    findtime = 10m
-    maxretry = 3
-            </code></pre>
+            <!-- Step 3 -->
+
+            <h2>3. Configure Fail2Ban</h2>
+
+            <pre><code>banaction = ufw
+banaction_allports = ufw
+destemail = it@companyname.com
+ignoreip = 127.0.0.1/8
+
+bantime = 720m
+findtime = 10m
+maxretry = 3</code></pre>
 
             <ul>
+
                 <li>
                     <strong>banaction:</strong>
                     Defines that the ban should be implemented automatically
@@ -305,10 +247,14 @@ code {
                     In this configuration, the limit is
                     <strong>3 attempts</strong>.
                 </li>
+
             </ul>
 
 
+            <!-- Step 4 -->
+
             <h2>4. Configure SSH Brute-Force Protection</h2>
+
             <p>
                 To enable protection against brute-force SSH attempts,
                 locate the <code>[sshd]</code> section in the
@@ -319,73 +265,89 @@ code {
 port = ssh
 enabled = true
 logpath = /var/log/fail2ban.log
-backend = %(sshd_backend)s
-            </code></pre>
+backend = %(sshd_backend)s</code></pre>
+
             <p>
                 After making the changes, save the file and exit the editor.
+            </p>
 
+
+            <!-- Step 5 -->
 
             <h2>5. Test the Configuration</h2>
+
             <p>
                 Before starting the Fail2Ban service, test the configuration
                 file. This will identify any configuration errors:
             </p>
+
             <pre><code>sudo fail2ban-client -t</code></pre>
 
 
+            <!-- Step 6 -->
+
             <h2>6. Start the Fail2Ban Service</h2>
+
             <p>
                 Start the Fail2Ban service:
             </p>
+
             <pre><code>sudo systemctl start fail2ban</code></pre>
 
             <p>
                 Enable Fail2Ban to start automatically when the system boots:
             </p>
+
             <pre><code>sudo systemctl enable fail2ban</code></pre>
 
 
+            <!-- Step 7 -->
+
             <h2>7. Check the Service Status</h2>
+
             <p>
                 Check the current status of the Fail2Ban service:
             </p>
+
             <pre><code>sudo systemctl status fail2ban</code></pre>
+
+
+            <!-- Step 8 -->
 
             <h2>8. Check SSH Login Attempts</h2>
 
             <p>
-                On Debian 12, SSH authentication events can be viewed
-                using:
+                On Debian 12, SSH authentication events can be viewed using:
             </p>
+
             <pre><code>sudo journalctl _COMM=sshd</code></pre>
 
             <p>
-                On Ubuntu 22.04, authentication logs can be monitored
-                using:
+                On Ubuntu 22.04, authentication logs can be monitored using:
             </p>
+
             <pre><code>sudo tail -f /var/log/auth.log</code></pre>
 
+
+            <!-- Step 9 -->
+
             <h2>9. Check Banned IP Addresses</h2>
+
             <p>
                 To check whether banned IP addresses have been added
                 to the UFW firewall:
             </p>
+
             <pre><code>sudo ufw status numbered</code></pre>
-        </section>
 
-    </main>
-
-</body>
-
-</html>
-                
         </article>
 
-  </main>
+    </main>
 
     <footer>
         <p>&copy; 2026 Riyaad Moosa Powered by GitHub Pages.</p>
     </footer>
 
 </body>
+
 </html>

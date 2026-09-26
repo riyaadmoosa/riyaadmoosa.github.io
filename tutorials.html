@@ -242,13 +242,13 @@ code {
 
             <h2>3. Configure Fail2Ban</h2>
             <pre><code>banaction = ufw
-                banaction_allports = ufw
-                destemail = it@companyname.com
-                ignoreip = 127.0.0.1/8
+    banaction_allports = ufw
+    destemail = it@companyname.com
+    ignoreip = 127.0.0.1/8
 
-                bantime = 720m
-                findtime = 10m
-                maxretry = 3
+    bantime = 720m
+    findtime = 10m
+    maxretry = 3
             </code></pre>
 
             <ul>
@@ -308,10 +308,10 @@ code {
             </p>
 
             <pre><code>[sshd]
-                    port = ssh
-                    enabled = true
-                    logpath = /var/log/fail2ban.log
-                    backend = %(sshd_backend)s
+port = ssh
+enabled = true
+logpath = /var/log/fail2ban.log
+backend = %(sshd_backend)s
             </code></pre>
             <p>
                 After making the changes, save the file and exit the editor.
@@ -370,10 +370,7 @@ code {
 </body>
 
 </html>
-                 
-
-            <h2>Results</h2>
-            <p></p>
+                
         </article>
 
   </main>

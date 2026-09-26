@@ -83,9 +83,18 @@
           findtime = 10m (This defines the time window in which failures are counted. In this case, it is 10 minutes)
           maxretry = 3    (This defines the number of failures allowed before a ban of the offending IP is implemented.
 
+      Now add the the blocking of brute-force SSH attempts. In the jail.local file look for the section for sshd. Adjust the section as below:
+            port = ssh
+            enabled = true
+            logpath = /var/log/fail2ban.log
+            backed = %(sshd_backend)s
+
+      After making the changes as above, save the file and exit it.
+      Then test the configuration file without starting the service. This will tell you if there are any issues in the configuration file:
+            sudo fail2ban-client -t
+
         To start the Fail2Ban service:
             sudo systemctl start fail2ban
-
         To enable the Fail2Ban service upon start-up:
             sudo systemctl enable fail2ban
         To check the Fail2Ban service status:
@@ -96,8 +105,7 @@
             sudo tail -f /var/log/auth.log
         To check if the banned IP addresses have been added to the UFW firewall:
             sudo ufw status numbered
-            
-          
+                 
 
             <h2>Results</h2>
             <p></p>
